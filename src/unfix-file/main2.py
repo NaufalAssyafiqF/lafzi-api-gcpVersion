@@ -27,24 +27,12 @@ def transcribe_file(local_file_path):
 
         audio = speech.RecognitionAudio(content=content)
 
-        hijaiyah_phrases = [
-            "اليف", "با", "باء", "تا", "تاء", "ثا", "ثاء", "جا","جيم", "جاء", "حا", "حاء", "خا", "خاء", "دا", "دال", "ذا", "ذال",
-            "را", "راء", "زا", "زا", "سا", "ساء","سين", "شاء", "شين", "صاء", "صاد", "ضاء", "ضاد", "طاء", "ظاء", "عاء", "عين", "غاء", "غين", "فاء", "قاء", "قاف", "شا", "صا", "ضا", "طا", "ظا", "عا",
-            "غا", "فا", "قا", "كا", "كاء", "كاف", "لا", "لام", "ما", "ماء", "ميم", "نا", "ناء", "نون", "ها", "هاء", "وا", "واو", "ياء", "يا"
-        ]
-
-
-        speech_context = speech.SpeechContext(
-            phrases=hijaiyah_phrases,
-            boost=15.0  # Tingkatkan prioritas pengenalan frasa ini
-        )
 
         config = speech.RecognitionConfig(
             encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
             sample_rate_hertz=44100,  # Updated sample rate
             audio_channel_count=2,    # Updated channel count
-            language_code="ar-EG",
-            speech_contexts=[speech_context],    # General Arabic
+            language_code="ar-EG",    # General Arabic
             enable_automatic_punctuation=True,  # Improve punctuation (optional)
         )
 
